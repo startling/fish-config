@@ -28,7 +28,7 @@ set workon_home $HOME/.virtualenvs
 set current_venv ""
 
 
-function workon
+function workon -d "activates the virtualenv with the given name from workon_home"
     if venv-exists $argv
         # if we're already in a venv, get out of it
         if test "$current_venv"
@@ -44,7 +44,7 @@ function workon
 end
 
 
-function deactivate
+function deactivate -d "restores the PATH to how it was before any virtualenvs were activated"
     # if we're already in a venv, revert to the old PATH and clear
     # $venv_old_path and $current_venv. If we're not, do nothing.
     if test "$current_venv"
@@ -55,7 +55,7 @@ function deactivate
 end
 
 
-function mkvenv
+function mkvenv -d "creates a virtualenv with the given name in workon_home"
     # if we've been given an argument: get out of the old venv (if applicable),
     # create a new venv, and workon it.
     if test "$argv"
@@ -66,7 +66,7 @@ function mkvenv
 end
 
 
-function rmvenv
+function rmvenv -d "removes the virtualenv with the given name from workon_home"
     # if the virtualenv (directory) exists in $workon_home, rm -rf it.
     for v in $argv
         if venv-exists $v
@@ -76,7 +76,7 @@ function rmvenv
 end
 
 
-function lsvenvs
+function lsvenvs -d "lists the virtualenvs inside of workon_home"
     # list all of the venvs (directories) in $workon_home
     for i in (ls $workon_home)
         if is-venv $i
@@ -92,7 +92,7 @@ function lsvenvs
 end
 
 
-function is-venv
+function is-venv -d "return 0 if a virtualenv with a given name exists in workon_home"
     if test -d $workon_home/$argv
         return 0
     else
@@ -101,7 +101,7 @@ function is-venv
 end
 
 
-function venv-exists
+function venv-exists "Print an error message if this venv doesn\'t exist in workon_home."
     if is-venv $argv
         return 0
     else
