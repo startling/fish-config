@@ -112,3 +112,9 @@ function venv-exists "Print an error message if this venv doesn\'t exist in work
         return 1
     end
 end
+
+
+complete -c workon -x -a "(lsvenvs)"
+complete -c rmvenv -x -a "(lsvenvs)"
+complete -c isvenv -x -a "(lsvenvs)"
+complete -c venv-exists -x -a "(lsvenvs)"
