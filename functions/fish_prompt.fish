@@ -1,4 +1,4 @@
-function with_color
+function with_color -d "set_color to the first argument and pass the rest to echo."
     # set the color to the first argument
     set_color $argv[1]
     # delete that argument
