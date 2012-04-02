@@ -101,7 +101,7 @@ function is-venv -d "return 0 if a virtualenv with a given name exists in workon
 end
 
 
-function venv-exists "Print an error message if this venv doesn\'t exist in workon_home."
+function venv-exists -d "Print an error message if this venv doesn\'t exist in workon_home."
     if is-venv $argv
         return 0
     else
