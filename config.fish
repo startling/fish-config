@@ -1,4 +1,4 @@
-set PATH /usr/local/share/python ~/code/bin /usr/local/bin $PATH
+set PATH /usr/local/share/python ~/code/bin /usr/local/bin ~/.cabal/bin $PATH
 
 # vim and some other things rely on SHELL being a posixy sh this may cause
 # problems in the future, in which case I'll define a little function to wrap
