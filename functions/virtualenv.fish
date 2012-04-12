@@ -23,9 +23,14 @@
 
 set workon_home $HOME/.virtualenvs
 
+
 # an environment variable to use in your prompt or whatever; you can rely on
 # this to be "" when there's no active venv.
 set current_venv ""
+
+
+# a global where we'll store the old path before we change it.
+set venv_old_path ""
 
 
 function workon -d "activates the virtualenv with the given name from workon_home"
