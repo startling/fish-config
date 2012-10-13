@@ -17,7 +17,7 @@ function fish_prompt
     
     with_color $fish_color_cwd -n (prompt_pwd)
 
-    if which git; and is-git
+    if is-git
         set-git-color
     end
 
